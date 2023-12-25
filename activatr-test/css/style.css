@@ -1,0 +1,966 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+/* ******************************************* */
+/* ******************************************* */
+/* ******************************************* */
+/* ******************************************* */
+/* ******************************************* */
+/* ******************************************* */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Rubik Mono One", monospace;
+  font-size: 1.6rem;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.header-1 {
+  font-size: 7rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 10;
+}
+
+.header-1::before {
+  content: "campaign ideas";
+  position: absolute;
+  color: #4700FF;
+  transform: translate(-0.5rem, -0.5rem);
+  z-index: -1;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .header-1 {
+    font-size: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header-1 {
+    font-size: 3rem;
+  }
+}
+
+.header-2 {
+  font-size: 7rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 10;
+}
+
+.header-2::before {
+  content: "create campaign";
+  position: absolute;
+  color: #4700FF;
+  transform: translate(-0.5rem, -0.5rem);
+  z-index: -1;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .header-2 {
+    font-size: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header-2 {
+    font-size: 3rem;
+  }
+}
+
+.header-3 {
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 600;
+  font-size: 10rem;
+  color: #FF007F;
+  text-align: center;
+}
+
+.pr-sm {
+  padding-right: 5rem;
+}
+
+.pl-sm {
+  padding-left: 5rem;
+}
+
+.hero {
+  background-color: #5BD7E8;
+  display: flex;
+  overflow: hidden;
+}
+
+.hero__img {
+  flex-shrink: 1;
+}
+
+.hero__illustration {
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+}
+
+@media only screen and (max-width: 75em) {
+  .hero__illustration {
+    display: none;
+  }
+}
+
+.hero__secondary-header {
+  position: relative;
+  z-index: 200;
+  padding-bottom: 10rem;
+}
+
+@media only screen and (max-width: 75em) {
+  .hero__secondary-header {
+    margin-top: 4rem;
+  }
+}
+
+.hero__secondary-header-2 {
+  font-family: "Kanit", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 5rem;
+  letter-spacing: 5.5%;
+  text-align: center;
+  text-transform: capitalize;
+  color: #4A0292;
+  z-index: 100;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .hero__secondary-header-2 {
+    font-size: 3.5rem;
+    font-weight: 400;
+  }
+}
+
+.hero__secondary-header .paint-splash {
+  position: absolute;
+  top: 1rem;
+  right: 30rem;
+  z-index: -10;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .hero__secondary-header .paint-splash {
+    right: 14rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .hero__secondary-header .paint-splash {
+    display: none;
+  }
+}
+
+.hero__secondary-header .arrow-loop {
+  position: absolute;
+  top: -6.5rem;
+  right: 65rem;
+  z-index: -10;
+}
+
+@media only screen and (max-width: 75em) {
+  .hero__secondary-header .arrow-loop {
+    display: none;
+  }
+}
+
+.hero__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .hero__content {
+    flex-direction: column-reverse;
+  }
+}
+
+.hero__container {
+  flex: 1;
+}
+
+.hero__header {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1.2%;
+  line-height: 15rem;
+  transform: rotate(-1deg);
+  padding-left: 4rem;
+}
+
+.hero__header-speaker {
+  position: absolute;
+  top: -92%;
+  left: 75%;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .hero__header-speaker {
+    height: 28rem;
+    left: 50%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .hero__header-speaker {
+    display: none;
+  }
+}
+
+.hero__header span {
+  display: block;
+}
+
+.hero__header span:nth-child(2),
+.hero__header span:nth-child(3) {
+  transform: translate(6rem);
+}
+
+@media only screen and (max-width: 37.5em) {
+
+  .hero__header span:nth-child(2),
+  .hero__header span:nth-child(3) {
+    transform: none;
+  }
+}
+
+.hero__header-highlight-2 {
+  color: #ffffff;
+  position: relative;
+  z-index: 10000;
+  font-family: "Kanit", sans-serif;
+  font-size: 17.5rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .hero__header-highlight-2 {
+    font-size: 10.5rem;
+  }
+}
+
+.hero__header-highlight-2::after,
+.hero__header-highlight-2::before {
+  content: "brand";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero__header-highlight-2::after {
+  color: #4700FF;
+  transform: translate(-1rem, -1rem);
+  z-index: -10;
+}
+
+.hero__header-highlight-2::before {
+  content: "brand";
+  color: #FF007F;
+  transform: translate(-0.5rem, -0.5rem);
+  z-index: -1;
+}
+
+.hero__header-highlight-1 {
+  font-size: 8rem;
+  color: #4700FF;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .hero__header-highlight-1 {
+    font-size: 4rem;
+  }
+}
+
+.hero__header-highlight-3 {
+  font-size: 8.5rem;
+  color: #FF007F;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .hero__header-highlight-3 {
+    font-size: 4.5rems;
+  }
+}
+
+.nav {
+  flex: 0 0 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__menu-bar {
+  height: 3rem;
+  cursor: pointer;
+}
+
+.nav__links img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.nav__links div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Kanit", sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background-color: #FF007F;
+}
+
+.nav__links div a {
+  font-size: 6.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  margin-left: 10rem;
+}
+
+.active {
+  display: none;
+}
+
+.campaign-creation {
+  background-color: #F3CB3B;
+  text-align: center;
+  padding: 3rem 0;
+  overflow-x: hidden;
+}
+
+.campaign-creation__illustration {
+  position: relative;
+  margin-top: 8rem;
+  transform: translate(5%, 0);
+}
+
+.campaign-creation__illustration img:nth-child(1) {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform: translateX(-25%);
+}
+
+.campaign__ideas {
+  font-family: "Kanit", sans-serif;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .campaign__ideas-img {
+    display: none;
+  }
+}
+
+.campaign__ideas-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin-top: 20rem;
+  padding: 0 12rem;
+}
+
+@media only screen and (max-width: 75em) {
+  .campaign__ideas-container {
+    padding: 0 6rem;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .campaign__ideas-container {
+    padding: 0 2rem;
+    grid-template-columns: 1fr;
+    margin-top: 10rem;
+  }
+}
+
+.campaign__ideas-header {
+  font-size: 6.4rem;
+  font-weight: 700;
+  color: #4700FF;
+}
+
+@media only screen and (max-width: 75em) {
+  .campaign__ideas-header {
+    font-size: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .campaign__ideas-header {
+    font-size: 3.2rem;
+  }
+}
+
+.campaign__ideas-text {
+  color: #0E0E0E;
+  font-size: 3.2rem;
+}
+
+.campaign__ideas-text p {
+  font-weight: 300;
+  font-size: 3.2rem;
+  line-height: 4.6rem;
+  margin-top: 3rem;
+}
+
+.campaign {
+  background-color: #FF007F;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.campaign__illustration {
+  position: relative;
+  z-index: 10;
+  margin-top: 4rem;
+}
+
+.campaign__illustration img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 15%);
+  z-index: -1;
+}
+
+.campaign__illustration img {
+  height: 40rem;
+}
+
+.campaign-title {
+  display: block;
+  font-size: 5rem;
+  font-weight: 600;
+  margin-top: 10rem;
+  color: #91D300;
+}
+
+.footer {
+  background-color: #0E0E0E;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .footer {
+    flex-direction: column;
+  }
+}
+
+.footer img {
+  flex: 0 0 20%;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .footer img {
+    height: 18rem;
+  }
+}
+
+.footer span {
+  display: flex;
+  align-items: start;
+}
+
+.footer span img {
+  height: 3rem;
+}
+
+.footer span a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 2.1rem;
+  font-family: "Kanit", sans-serif;
+}
+
+.footer__details {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .footer__details {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.footer__details-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .footer__details-social {
+    gap: 2rem;
+  }
+}
+
+.footer__details-location {
+  flex: 0 0 48%;
+}
+
+.metric {
+  background-color: #F2DAFB;
+  padding: 10rem 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 75em) {
+  .metric {
+    display: block;
+  }
+}
+
+.metric__arrow {
+  transform: translateY(1.5rem);
+  margin-left: 5rem;
+  cursor: pointer;
+}
+
+.metric__dots {
+  height: 10rem;
+  text-align: center;
+  transform: translateX(-60rem);
+  margin-top: 3rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .metric__dots {
+    transform: translateX(-68rem);
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .metric__dots {
+    transform: translateX(-85rem);
+  }
+}
+
+.metric__dots span {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  background-color: #9F8DCF;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .metric__dots span {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.metric__slider-container {
+  width: 230rem;
+  padding: 3rem 0;
+  overflow-x: hidden;
+}
+
+.metric__slider {
+  display: flex;
+  gap: 5rem;
+  transition: all .3s ease;
+}
+
+.metric__slider div {
+  background-color: #9E04C5;
+  padding: 3rem;
+  height: 72rem;
+  width: 25rem;
+  border-radius: 5rem;
+}
+
+.metric__slider div img {
+  width: 100%;
+}
+
+.metric h3 {
+  font-size: 6.4rem;
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 400;
+  color: #0E0E0E;
+  position: relative;
+  text-align: center;
+  align-self: center;
+  transform: rotate(-90deg) translateX(8rem);
+}
+
+.metric h3::before {
+  content: "metric measures";
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  transform: translate(-0.3rem, -0.3rem);
+  color: #9E04C5;
+}
+
+@media only screen and (max-width: 75em) {
+  .metric h3::before {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 75em) {
+  .metric h3 {
+    transform: none;
+    color: #9E04C5;
+  }
+}
+
+.slide {
+  font-family: "Kanit", sans-serif;
+  color: #ffffff;
+  text-align: center;
+}
+
+.slide__header {
+  font-weight: 600;
+  font-size: 3.6rem;
+  transform: rotate(-90deg) translateX(-20rem);
+}
+
+.slide__text {
+  display: none;
+}
+
+.active-slider.slide .slide__text {
+  display: block;
+  margin-top: 2rem;
+  font-size: 2.4rem;
+  line-height: 3.4rem;
+  padding: 0 4rem;
+}
+
+.active-slider.slide .slide__header {
+  font-size: 6.4rem;
+  line-height: 5.4rem;
+  transform: none;
+}
+
+.active-slider {
+  background-color: blue;
+  flex-basis: 50rem;
+}
+
+.metric__dots .active-dot {
+  background-color: #9E04C5;
+}
+
+.campaign__details {
+  padding: 2rem 5rem;
+  display: flex;
+  gap: 5rem;
+  background-color: #4700FF;
+  color: red;
+}
+
+@media only screen and (max-width: 75em) {
+  .campaign__details {
+    flex-direction: column;
+  }
+}
+
+.campaign__details-intro-img {
+  height: 20rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.campaign__details-steps {
+  flex-basis: 30%;
+  padding-bottom: 3rem;
+}
+
+.campaign__details-steps div {
+  margin-top: 3rem;
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-size: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.campaign__details-steps div a {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.686);
+}
+
+.campaign__details-select {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 3rem;
+}
+
+.campaign__details-select h3 {
+  font-size: 3.6rem;
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  color: #4700FF;
+}
+
+.campaign__duration {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.content h4 {
+  font-family: Kanit;
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 3.4rem;
+}
+
+.content div {
+  align-self: center;
+  margin: 0 auto;
+}
+
+.content img {
+  padding: 3rem;
+  height: 18rem;
+  width: 20rem;
+  border-radius: 2rem;
+  background-color: #3D159F70;
+}
+
+.campaign-content {
+  color: #0E0E0E;
+}
+
+.next-btn {
+  display: block;
+  font-family: "Kanit", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 3.4rem;
+  width: 18rem;
+  height: 5.2rem;
+  background-color: #4700FF;
+  color: #ffffff;
+  border: 1px solid #0E0E0E;
+}
+
+.back-btn {
+  font-family: "Kanit", sans-serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 3.2rem;
+  letter-spacing: 0em;
+  color: #4700FF;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+}
+
+.btns {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.grid-3-col {
+  padding: 2rem 8rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .grid-3-col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem 4rem;
+  }
+}
+
+.campaign-done img {
+  width: 100%;
+  height: 50rem;
+  margin: 0 auto;
+}
+
+form {
+  padding-left: 6rem;
+}
+
+form label {
+  display: block;
+  font-family: Kanit;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 34px;
+  letter-spacing: 0.055em;
+  color: #4700FF;
+  margin-top: 3rem;
+}
+
+form input {
+  width: 30rem;
+  height: 4rem;
+  border-radius: .5rem;
+  border: 2px solid #4700FF;
+}
+
+.campaign__details-steps a.active-link {
+  color: #ffffff;
+}
+
+.scroll {
+  background-color: #5BD7E8;
+  border-top: 3px solid #0E0E0E;
+  border-bottom: 3px solid #0E0E0E;
+  padding: 1.2rem 0;
+  display: flex;
+}
+
+.scroll__slide {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: 10s slide infinite linear;
+}
+
+.scroll__slide span:nth-child(1) {
+  color: #9E04C5;
+}
+
+.scroll__slide span:nth-child(2) {
+  color: #4700FF;
+}
+
+.scroll__slide span:nth-child(3) {
+  color: #FF007F;
+}
+
+.scroll span {
+  font-style: italic;
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-size: 3.6rem;
+}
+
+.btn {
+  display: inline-block;
+  font-family: "Kanit", sans-serif;
+  font-size: 4.8rem;
+  font-weight: 600;
+  color: #0E0E0E;
+  text-decoration: none;
+  padding: .6rem 2.4rem;
+  background-color: #F3CB3B;
+  border-radius: 1rem;
+  margin-top: 10rem;
+}
+
+.copyright {
+  font-size: 2.4rem;
+  color: #ffffff;
+  background-color: #0E0E0E;
+  text-align: center;
+  padding: 3rem 6rem;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  border-top: 1px solid #ffffff;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .copyright {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .copyright {
+    font-size: 1.4rem;
+  }
+}
